@@ -251,6 +251,13 @@ You can help translating the extension by joining Image Picka team on [Transifex
 Changelog
 ---------
 
+* 0.23.1 (Jan 30, 2026)
+
+  - Add: support URL blacklist by transforming a URL to a single hyphen.
+  - Add: option to close image picker after batch download.
+  - Add: ZIP packer.
+  - Fix: file extension was not used correctly.
+
 * 0.23.0 (Dec 7, 2025)
 
   - Change: remove `data_collection_permissions` for backwards compatibility.
