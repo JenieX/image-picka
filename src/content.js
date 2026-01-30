@@ -68,7 +68,6 @@ function viewSourceElement(pickaId) {
 }
 
 function downloadImage({url, referrerPolicy = getDefaultReferrerPolicy(), alt}) {
-  url = transformURL(url);
   browser.runtime.sendMessage({
     method: "singleDownload",
     env: window.top === window ? getEnv() : null,
@@ -83,6 +82,9 @@ function getImages() {
   const images = new Map;
   for (const {src, referrerPolicy, alt, pickaId} of getAllImages()) {
     const url = transformURL(src)
+    if (!url) {
+      continue;
+    }
     const image = {
       url,
       referrer: getReferrer(location.href, url, referrerPolicy || getDefaultReferrerPolicy()),
